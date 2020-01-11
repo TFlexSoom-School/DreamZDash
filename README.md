@@ -24,5 +24,9 @@ can safely gather their own branch.
 
 ## Contact
 Tristan Hilbert
+
+
 hilbertt@oregonstate.edu
+
+
 CS 29 Dreamz Catcherz
