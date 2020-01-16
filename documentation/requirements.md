@@ -57,8 +57,8 @@ These are organized into:
 ### DreamZDash-Util: Loader
 Many of the components in the DreamZDash software system load something. A singular object which works
 to load pieces of data and blocking minimally (i.e. buffering) would be very useful in the project. This
-should have an interface according to a directy which is concurrently loaded in byte form. The loader 
-shouldnot decode the information, but nearly load it. A cacheing system is also possible with this 
+should have an interface according to a directory which is concurrently loaded in byte form. The loader 
+should not decode the information, but only load it. A cacheing system is also possible with this 
 black box description.
 #### Targets
 src/DreamZDash-Util/Loader.hpp

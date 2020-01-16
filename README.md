@@ -18,6 +18,7 @@ Further information will be in the documentation directory of this project.
 ## Dependencies
 You will need the following dependencies
 - CMake 13.2
+- doxygen (For contributing)
 
 ## Command
 The CMakeLists.txt needs to be invoked with cmake.
