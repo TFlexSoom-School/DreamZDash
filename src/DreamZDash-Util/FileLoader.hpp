@@ -7,8 +7,8 @@
  * 
  */
 
-#ifndef DREAMZDASH_LOADER_HPP
-#define DREAMZDASH_LOADER_HPP
+#ifndef DREAMZDASH_FILE_LOADER_HPP
+#define DREAMZDASH_FILE_LOADER_HPP
 
 #include <fstream>
 
@@ -16,7 +16,7 @@ namespace dzdash{
 
 const int buffer_size_default = 2048;
 
-class Loader{
+class FileLoader{
     private:
         std::ifstream file;
         char * buffer;
@@ -24,13 +24,14 @@ class Loader{
         const int max_buffer_size;
     
     public:
-        Loader(int max_buffer_size = buffer_size_default);
-        Loader(const char *, int max_buffer_size = buffer_size_default);
-        virtual ~Loader();
+        FileLoader(int max_buffer_size = buffer_size_default);
+        FileLoader(const char *, int max_buffer_size = buffer_size_default);
+        virtual ~FileLoader();
         virtual const char* load();
         virtual const char* get_buffer();
         virtual int get_buffer_size();
         virtual int get_count();
+        virtual void open(const char *);
 
 };
 

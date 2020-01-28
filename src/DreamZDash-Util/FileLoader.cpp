@@ -1,18 +1,18 @@
 /* 
  * Tristan Hilbert
  * 1/15/2020
- * DreamZDash Loader Utility
+ * DreamZDash FileLoader Utility
  * 
  */
 
-#include "Loader.hpp"
+#include "FileLoader.hpp"
 #include <fstream>
 #include <algorithm>
 
 namespace dzdash{
 
 
-Loader::Loader(int max_buffer_size):
+FileLoader::FileLoader(int max_buffer_size):
     buffer_size(0),
     max_buffer_size(max_buffer_size)
 {
@@ -20,7 +20,7 @@ Loader::Loader(int max_buffer_size):
     this->buffer_size = 0;
 }
 
-Loader::Loader(const char * filename, int max_buffer_size): 
+FileLoader::FileLoader(const char * filename, int max_buffer_size): 
     buffer(new char[max_buffer_size]), 
     buffer_size(0),
     max_buffer_size(max_buffer_size)
@@ -28,12 +28,12 @@ Loader::Loader(const char * filename, int max_buffer_size):
     this->file.open(filename);
 }
 
-Loader::~Loader(){
+FileLoader::~FileLoader(){
     delete [] this->buffer;
     file.close();
 }
 
-const char* Loader::load(){
+const char* FileLoader::load(){
     int count = this->file.gcount();
     count = std::min(count, this->max_buffer_size);
     this->file.read(this->buffer, count);
@@ -41,16 +41,20 @@ const char* Loader::load(){
     return this->buffer;
 }
 
-const char* Loader::get_buffer(){
+const char* FileLoader::get_buffer(){
     return this->buffer;
 }
 
-int Loader::get_buffer_size(){
+int FileLoader::get_buffer_size(){
     return this->buffer_size;
 }
 
-int Loader::get_count(){
+int FileLoader::get_count(){
     return this->file.gcount();
+}
+
+void FileLoader::open(const char * filename){
+    this->file.open(filename);
 }
 
 };
