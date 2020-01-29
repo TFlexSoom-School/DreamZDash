@@ -37,7 +37,7 @@ class DirLoader{
          */
     
     public:
-        DirLoader(const char *, int max_buffer_size = buffer_size_default);
+        DirLoader(const char *, int max_buffer_size = buffer_size_default, bool recursive = true);
         virtual ~DirLoader();
         
         /* File Loading Utilities */
@@ -62,6 +62,10 @@ class DirLoader{
 
 
 };
+
+#ifndef NDEBUG
+void test_DirLoader();
+#endif
 
 };
 

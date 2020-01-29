@@ -4,7 +4,6 @@
  * DreamZKernel
  * 
  */
-
 #include <iostream>
 #include "DreamZDash-Util/DirLoader.hpp"
 
@@ -12,7 +11,9 @@
 int main(int argc, char* argv[]){
     std::cout << "Hello World" << std::endl;
 
-    dzdash::DirLoader ex("./example/", 2048);
+    dzdash::test_DirLoader();
     
+    std::cout << "Complete!" << std::endl;
     return 0;
 }
+
