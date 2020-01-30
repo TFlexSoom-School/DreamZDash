@@ -170,7 +170,7 @@ The DreamZDash-Display process works to display all the information collected fr
 processes. It also works to receive and respond to input from the player. The display will
 have some difficulty when architected. It should consider what happens if no data loads.
 The display will need to communicate as well as possible in all scenarios. We're not going
-to solve the halting proble here, but we can respect inputs. It might help to do some research.
+to solve the halting problem here, but we can respect inputs. It might help to do some research.
 
 
 Also this will need the use of a graphics framework like QT or SDL. Some multimedia service
