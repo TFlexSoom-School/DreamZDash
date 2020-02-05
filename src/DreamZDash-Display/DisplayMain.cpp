@@ -2,8 +2,8 @@
  * Tristan Hilbert
  * 1/30/2020
  * Display Main Source File
- * 
- * 
+ *
+ *
  */
 
 #include "ViewOrchestration.hpp"

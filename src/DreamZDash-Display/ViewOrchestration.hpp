@@ -4,22 +4,35 @@
  * Tristan Hilbert
  * 1/30/2020
  * Graphical Display Object
- * 
+ *
  * This object will work as the engine pushing the actual graphical implementations
  * loaded as a part of DreamZDash-Display.
- * 
+ *
+ */
+
+/*
+ * ViewOrchestration Composition
+ *
+ * Background z-0
+ * Dash Arrows z-1
+ * Icons z-2
+ * GamePreview z-3
  */
 
 #ifndef DREAMZDASH_VIEW_ORCHESTRATION
 #define DREAMZDASH_VIEW_ORCHESTRATION
 
-#include <SFML/Graphics.hpp>
+#include "DreamZWindow.hpp"
+#include "Background.hpp"
 
 namespace dzdash{
 
+
 class ViewOrchestration{
     private:
-    sf::RenderWindow window;
+    // See DreamZWindow.hpp
+    Window window;
+    Background back;
 
     public:
     ViewOrchestration();
