@@ -32,9 +32,7 @@ ViewOrchestration::~ViewOrchestration(){
 }
 
 void ViewOrchestration::display(){
-    sf::RectangleShape rect(sf::Vector2f(100,100));
-    rect.setFillColor(sf::Color::White);
-    this->window.draw(rect);
+    this->back.draw(this->window);
     this->window.display();
 }
 

@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef DREAMZDASH_DREAM_Z_WINDOW
-#define DREAMZDASH_DREAM_Z_WINDOW
+#ifndef DREAMZDASH_DREAM_Z_WINDOW_HPP
+#define DREAMZDASH_DREAM_Z_WINDOW_HPP
 
 #include <functional>
 #include <SFML/Graphics.hpp>

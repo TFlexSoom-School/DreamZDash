@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef DREAMZDASH_CONSTANTS
-#define DREAMZDASH_CONSTANTS
+#ifndef DREAMZDASH_CONSTANTS_HPP
+#define DREAMZDASH_CONSTANTS_HPP
 #include <SFML/Graphics.hpp>
 
 namespace dzdash{

@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef DREAMZDASH_BACKGROUND
-#define DREAMZDASH_BACKGROUND
+#ifndef DREAMZDASH_BACKGROUND_HPP
+#define DREAMZDASH_BACKGROUND_HPP
 
 #include <SFML/Graphics.hpp>
 #include <vector>

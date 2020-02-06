@@ -43,7 +43,9 @@ void Background::setup(){
 
 Background::Background():
     draws()
-{}
+{
+    this->setup();
+}
 
 Background::~Background(){
     this->draws.clear();

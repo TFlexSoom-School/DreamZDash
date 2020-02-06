@@ -19,8 +19,8 @@
  * GamePreview z-3
  */
 
-#ifndef DREAMZDASH_VIEW_ORCHESTRATION
-#define DREAMZDASH_VIEW_ORCHESTRATION
+#ifndef DREAMZDASH_VIEW_ORCHESTRATION_HPP
+#define DREAMZDASH_VIEW_ORCHESTRATION_HPP
 
 #include "DreamZWindow.hpp"
 #include "Background.hpp"
