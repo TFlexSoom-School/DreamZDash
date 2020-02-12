@@ -7,20 +7,22 @@
 
 #include "ViewOrchestration.hpp"
 #include "Constants.hpp"
-#include <iostream>
 #include <SFML/Graphics.hpp>
 
 namespace dzdash{
 
 ViewOrchestration::ViewOrchestration():
     window(),
-    back()
+    back(),
+    arrows(),
+    frameMod(0)
 {
 
     /*std::function<void()> resizeHook(
         [&](){
             sf::Vector2f size = this->window.getSize();
             this->back.onResize(size);
+            this->arrows.onResize(size);
         }
     );
 
@@ -31,13 +33,16 @@ ViewOrchestration::~ViewOrchestration(){
     this->window.close();
 }
 
-void ViewOrchestration::display(){
+void ViewOrchestration::displayToWindow(){
+    this->window.clear();
     this->back.draw(this->window);
+    this->arrows.draw(this->window);
     this->window.display();
 }
 
-bool ViewOrchestration::isOpen(){
-    return this->window.isOpen();
+void ViewOrchestration::tick(){
+    this->frameMod = (this->frameMod + 1) % 60;
+    this->arrows.tick(this->frameMod, true, true);
 }
 
 };

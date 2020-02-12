@@ -24,6 +24,7 @@
 
 #include "DreamZWindow.hpp"
 #include "Background.hpp"
+#include "Arrows.hpp"
 
 namespace dzdash{
 
@@ -31,15 +32,20 @@ namespace dzdash{
 class ViewOrchestration{
     private:
     // See DreamZWindow.hpp
-    Window window;
     Background back;
+    Arrows arrows;
+    sf::Uint8 frameMod;
+
+    public:
+    // I want to have access to all window functions!
+    Window window;
 
     public:
     ViewOrchestration();
     virtual ~ViewOrchestration();
-    virtual void display();
+    virtual void displayToWindow();
+    virtual void tick();
 
-    virtual bool isOpen();
 
 };
 
