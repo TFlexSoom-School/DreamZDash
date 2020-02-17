@@ -25,15 +25,18 @@
 #include "DreamZWindow.hpp"
 #include "Background.hpp"
 #include "Arrows.hpp"
+#include "GamePreview.hpp"
+#include "Constants.hpp"
+#include <SFML/Graphics.hpp>
 
 namespace dzdash{
-
 
 class ViewOrchestration{
     private:
     // See DreamZWindow.hpp
     Background back;
     Arrows arrows;
+    GamePreview gamePreview;
     sf::Uint8 frameMod;
 
     public:
@@ -45,6 +48,7 @@ class ViewOrchestration{
     virtual ~ViewOrchestration();
     virtual void displayToWindow();
     virtual void tick();
+    virtual void input(INPUT_FLAG input);
 
 
 };
