@@ -11,6 +11,8 @@ class Arrows{
 private:
     sf::RectangleShape arrowLeft;
     sf::RectangleShape arrowRight;
+    sf::Texture leftTexture;
+    sf::Texture rightTexture;
     float screenWidth;
     float jiggleFactor;
     void setup();

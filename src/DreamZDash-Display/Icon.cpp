@@ -7,20 +7,18 @@
 
 #include "Icon.hpp"
 #include "Constants.hpp"
+#include <iostream>
 
 namespace dzdash{
 
-    // Texture is copied!!!!
-    Icon::Icon(const sf::Texture& text, const sf::Vector2f& dim):
+    Icon::Icon(const sf::Vector2f& dim):
         iconTarget(sf::Vector2f(dim.x, dim.y)),
-        image(text), // Copy Texture
+        image(), // Copy Texture
         defaultDimensions(dim),
         costume(0),
         // Empty Function
         task()
     {
-        this->iconTarget.setTexture(&this->image);
-
         // Implicit Casts
         int width = dim.x;
         int height = dim.y;
@@ -28,20 +26,16 @@ namespace dzdash{
         this->iconTarget.setTextureRect(sf::IntRect(0,0,width,height));
     }
 
-    // Texture is copied!!!!
     Icon::Icon(
-        const sf::Texture& text,
         const std::function<void(void)>& task,
         const sf::Vector2f& dim
     ):
         iconTarget(sf::Vector2f(dim.x, dim.y)),
-        image(text), // Copy Texture
+        image(), // Copy Texture
         defaultDimensions(dim),
         costume(0),
         task(task)
     {
-        this->iconTarget.setTexture(&this->image);
-
         // Implicit Casts
         int width = dim.x;
         int height = dim.y;
@@ -62,6 +56,13 @@ namespace dzdash{
         float x = (this->defaultDimensions.x * size.x) / defaultRatio.x;
         float y = (this->defaultDimensions.y * size.y) / defaultRatio.y;
         this->iconTarget.setScale(x,y);
+
+        // Same thing with setPosition
+        sf::Vector2f pos = this->iconTarget.getPosition();
+        pos.x = (pos.x * size.x) / defaultRatio.x;
+        pos.y = (pos.y * size.y) / defaultRatio.y;
+        this->iconTarget.setPosition(pos);
+
     }
 
     // Animation?
@@ -74,6 +75,11 @@ namespace dzdash{
 
     sf::Vector2f Icon::getPosition(){
         return this->iconTarget.getPosition();
+    }
+
+    void Icon::copySetText(const sf::Texture& text){
+        this->image = text;
+        this->iconTarget.setTexture(&this->image);
     }
 
     void Icon::setCostume(sf::Uint8 index){

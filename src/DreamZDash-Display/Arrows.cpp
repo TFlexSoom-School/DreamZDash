@@ -16,15 +16,22 @@ sf::RectangleShape arrowRight;
 
 namespace dzdash{
 
+const float iconDim = 64.0f;
+const float halfDim = iconDim / 2.0f;
+
 void Arrows::setup(){
+    // TODO create a function to do this instead
+    this->leftTexture.loadFromFile("./assets/previous.png");
+    this->rightTexture.loadFromFile("./assets/next.png");
+
     this->arrowLeft.setPosition(sf::Vector2f(
         0.0f,
-        defaultRatio.y / 24.0f * 9.0f
+        defaultRatio.y / 2.0 - halfDim
     ));
 
     this->arrowRight.setPosition(sf::Vector2f(
         this->screenWidth - this->arrowRight.getSize().x,
-        defaultRatio.y / 24.0f * 9.0f
+        defaultRatio.y / 2.0 - halfDim
     ));
 
     // default to right arrow having more games at start
@@ -32,17 +39,21 @@ void Arrows::setup(){
 
     // Set Jiggle Factor to be size.x / 80
     this->jiggleFactor = defaultRatio.x / 80.0f;
+
 }
 
 void Arrows::highlight(bool isLeftHighlight, bool isRightHighlight){
     if(isLeftHighlight){
+        // Color must be set to white first because it sets opacity
         this->arrowLeft.setFillColor(sf::Color::White);
+        this->arrowLeft.setTexture(&(this->leftTexture));
     }else{
         this->arrowLeft.setFillColor(sf::Color::Black);
     }
 
     if(isRightHighlight){
         this->arrowRight.setFillColor(sf::Color::White);
+        this->arrowRight.setTexture(&(this->rightTexture));
     }else{
         this->arrowRight.setFillColor(sf::Color::Black);
     }
@@ -79,8 +90,10 @@ void Arrows::jiggle(bool isLeftHighlight, bool isRightHighlight){
 
 
 Arrows::Arrows():
-    arrowLeft(sf::Vector2f(defaultRatio.x / 16.0f, defaultRatio.y / 5.0f)),
-    arrowRight(sf::Vector2f(defaultRatio.x / 16.0f, defaultRatio.y / 5.0f)),
+    arrowLeft(sf::Vector2f(iconDim, iconDim)),
+    arrowRight(sf::Vector2f(iconDim, iconDim)),
+    leftTexture(),
+    rightTexture(),
     screenWidth(defaultRatio.x),
     jiggleFactor(0.0f)
 {

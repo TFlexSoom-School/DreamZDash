@@ -38,13 +38,11 @@ class Icon{
 public:
     // Texture should be copied!!!
     Icon(
-        const sf::Texture&,
         const sf::Vector2f& dim = sf::Vector2f(25, 25)
     );
 
     // Texture should be copied!!!
     Icon(
-        const sf::Texture&,
         const std::function<void(void)>&,
         const sf::Vector2f& dim = sf::Vector2f(25, 25)
     );
@@ -58,6 +56,14 @@ public:
     // Fascades for sf::RectangleShape functions
     virtual void setPosition(const sf::Vector2f&);
     virtual sf::Vector2f getPosition();
+
+    // Function to set Texture
+    /*
+     * It is possible to do this at construction, but then functionality
+     * must be added to correctly copy the fields of the object. Otherwise
+     * no texture will be shown.
+     */
+    virtual void copySetText(const sf::Texture&);
 
     virtual void setCostume(sf::Uint8 index = 0);
     virtual void nextCostume(sf::Uint8);

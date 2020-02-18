@@ -26,8 +26,10 @@
 #include "Background.hpp"
 #include "Arrows.hpp"
 #include "GamePreview.hpp"
+#include "Icon.hpp"
 #include "Constants.hpp"
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 namespace dzdash{
 
@@ -37,11 +39,15 @@ class ViewOrchestration{
     Background back;
     Arrows arrows;
     GamePreview gamePreview;
+    std::vector<Icon> icons;
     sf::Uint8 frameMod;
 
     public:
     // I want to have access to all window functions!
     Window window;
+
+    private:
+    void setupIcons();
 
     public:
     ViewOrchestration();
