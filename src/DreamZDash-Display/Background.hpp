@@ -23,7 +23,7 @@ class Background{
         Background();
         virtual ~Background();
         virtual void draw(sf::RenderWindow&);
-        virtual void resize(const sf::Vector2f&);
+        virtual void onResize(const sf::Vector2f&);
 
 
 };

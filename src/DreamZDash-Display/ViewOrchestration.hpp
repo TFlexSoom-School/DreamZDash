@@ -27,6 +27,8 @@
 #include "Arrows.hpp"
 #include "GamePreview.hpp"
 #include "Icon.hpp"
+#include "BlueSquare.hpp"
+#include "RefSelector.hpp"
 #include "Constants.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -38,6 +40,8 @@ class ViewOrchestration{
     // See DreamZWindow.hpp
     Background back;
     Arrows arrows;
+    BlueSquare blueSquareSelector;
+    RefSelector selectorData;
     GamePreview gamePreview;
     std::vector<Icon> icons;
     sf::Uint8 frameMod;
@@ -47,7 +51,15 @@ class ViewOrchestration{
     Window window;
 
     private:
+    // setup Functions
+    // The functions below are coupled
     void setupIcons();
+    void setupSelector();
+
+    private:
+    // Input Helper Function
+    bool inputLeftRight(bool);
+
 
     public:
     ViewOrchestration();

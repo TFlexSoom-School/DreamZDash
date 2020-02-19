@@ -7,7 +7,6 @@
 
 #include "Icon.hpp"
 #include "Constants.hpp"
-#include <iostream>
 
 namespace dzdash{
 

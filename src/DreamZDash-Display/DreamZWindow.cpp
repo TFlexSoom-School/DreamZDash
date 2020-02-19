@@ -22,8 +22,8 @@ Window::Window():
     // Both functions should be void-full lambda functions
     // These functions should do nothing
     // They are the equivalent of setting null while still be callable
-    lambdaCreate(),
-    lambdaResize()
+    lambdaCreate([](){}),
+    lambdaResize([](){})
 { }
 
 Window::Window(
@@ -36,14 +36,14 @@ Window::Window(
     // Both functions should be void-full lambda functions
     // These functions should do nothing
     // They are the equivalent of setting null while still be callable
-    lambdaCreate(),
-    lambdaResize()
+    lambdaCreate([](){}),
+    lambdaResize([](){})
 { }
 
 Window::~Window(){
 
 }
-/*
+
 void Window::setOnCreate(const std::function<void()>& func){
     this->lambdaCreate = std::move(func);
 }
@@ -51,7 +51,7 @@ void Window::setOnCreate(const std::function<void()>& func){
 void Window::setOnResize(const std::function<void()>& func){
     this->lambdaResize = std::move(func);
 }
-*/
+
 
 // TODO Penetration Test
 /*
@@ -61,7 +61,7 @@ void Window::setOnResize(const std::function<void()>& func){
  * should match up to computed hashes within the constants set. This way only
  * our created functions are called. Food for thought.
  */
- /*
+
 void Window::onCreate(){
     this->lambdaCreate();
 }
@@ -69,5 +69,5 @@ void Window::onCreate(){
 void Window::onResize(){
     this->lambdaResize();
 }
-*/
+
 };

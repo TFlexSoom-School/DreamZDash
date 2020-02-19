@@ -24,7 +24,6 @@ sf::Uint8 index;
 #include "Constants.hpp"
 #include <stdexcept>
 #include <utility>
-#include <iostream>
 
 namespace dzdash{
 
@@ -77,8 +76,6 @@ void GamePreview::setup(){
         this->screenSize.x / 9.0f * 5.0f,
         this->screenSize.y / 2.0f
     ));
-
-    std::cout << this->gameNameText.getLocalBounds().height << std::endl;
 
     this->gameAuthorText.setPosition(sf::Vector2f(
         this->screenSize.x / 9.0f * 5.0f,

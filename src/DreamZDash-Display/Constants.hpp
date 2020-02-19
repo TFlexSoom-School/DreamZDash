@@ -13,12 +13,18 @@
 #include <string>
 
 namespace dzdash{
-    const sf::Vector2u defaultRatio(800, 600);
+    const sf::Vector2u defaultRatio(1333, 750);
     const std::string defaultFontPath =
         "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf";
 
     enum INPUT_FLAG : unsigned int{
         INPUT_NONE = 0,
+        INPUT_UP,
+        INPUT_RIGHT,
+        INPUT_DOWN,
+        INPUT_LEFT,
+        INPUT_SELECT,
+        // Add Other Inputs Here
         SOMETHING
     };
 

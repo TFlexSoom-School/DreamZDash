@@ -18,6 +18,7 @@ namespace dzdash{
 
 const float iconDim = 64.0f;
 const float halfDim = iconDim / 2.0f;
+const float jiggleFactorConst = defaultRatio.x / 160.0f;
 
 void Arrows::setup(){
     // TODO create a function to do this instead
@@ -37,8 +38,8 @@ void Arrows::setup(){
     // default to right arrow having more games at start
     this->highlight(false, true);
 
-    // Set Jiggle Factor to be size.x / 80
-    this->jiggleFactor = defaultRatio.x / 80.0f;
+    // Set Jiggle Factor to be size.x / 160
+    this->jiggleFactor = jiggleFactorConst;
 
 }
 
@@ -63,7 +64,7 @@ void Arrows::jiggle(bool isLeftHighlight, bool isRightHighlight){
     // Jiggle Highlighted Arrow(s)
     if(isLeftHighlight){
         if(this->arrowLeft.getPosition().x < this->jiggleFactor){
-            this->arrowLeft.move(1.0f, 0);
+            this->arrowLeft.move(0.25f, 0);
         }else{
             this->arrowLeft.setPosition(sf::Vector2f(
                 0.0f,
@@ -78,7 +79,7 @@ void Arrows::jiggle(bool isLeftHighlight, bool isRightHighlight){
             this->jiggleFactor - this->arrowRight.getSize().x;
 
         if(this->arrowRight.getPosition().x > jiggleBound){
-            this->arrowRight.move(-1.0f, 0);
+            this->arrowRight.move(-0.25f, 0);
         }else{
             this->arrowRight.setPosition(sf::Vector2f(
                 this->screenWidth - this->arrowRight.getSize().x,
@@ -122,16 +123,14 @@ void Arrows::onResize(const sf::Vector2f& size){
         size.y / 12.0f * 5.0f
     ));
 
-    // Set Jiggle Factor to be size.x / 80
-    this->jiggleFactor = size.x / 80.0f;
+    // Set Jiggle Factor to be size.x / 160
+    this->jiggleFactor = jiggleFactorConst;
 
 }
 
 void Arrows::tick(sf::Uint8 frameMod, bool isLeftHighlight, bool isRightHighlight){
     this->highlight(isLeftHighlight, isRightHighlight);
-    if(frameMod % 5 == 0){
-        this->jiggle(isLeftHighlight, isRightHighlight);
-    }
+    this->jiggle(isLeftHighlight, isRightHighlight);
 
 }
 

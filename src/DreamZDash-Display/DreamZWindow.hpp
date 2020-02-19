@@ -12,12 +12,13 @@
 
 #include <functional>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 namespace dzdash{
 class Window : public sf::RenderWindow{
     private:
-        std::function<void()> lambdaCreate;
-        std::function<void()> lambdaResize;
+        std::function<void(void)> lambdaCreate;
+        std::function<void(void)> lambdaResize;
 
     public:
         Window();
@@ -28,10 +29,10 @@ class Window : public sf::RenderWindow{
             const sf::ContextSettings& settings= sf::ContextSettings()
         );
         virtual ~Window();
-        /*virtual void setOnCreate(const std::function&);
-        virtual void setOnResize(const std::function&);
+        virtual void setOnCreate(const std::function<void(void)>&);
+        virtual void setOnResize(const std::function<void(void)>&);
         virtual void onCreate();
-        virtual void onResize();*/
+        virtual void onResize();
 
 };
 
