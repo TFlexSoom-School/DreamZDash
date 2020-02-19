@@ -4,10 +4,16 @@
  * DreamZKernel
  * 
  */
-
-#include<iostream>
+#include <iostream>
+#include "DreamZDash-Util/DirLoader.hpp"
 
 // Stand-in till actual development begins.
 int main(int argc, char* argv[]){
     std::cout << "Hello World" << std::endl;
+
+    dzdash::test_DirLoader();
+    
+    std::cout << "Complete!" << std::endl;
+    return 0;
 }
+

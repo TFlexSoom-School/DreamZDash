@@ -6,6 +6,12 @@ Made By CS29 Dreamz Catcherz
 
 
 Oregon State University EECS Capstone 2020
+
+# LICENSE
+This project complies with multiple licenses listed in the root directory
+of this project. Please read and follow all license agreements within the root
+of this project. These files comply to the regular expresssion `*LICENSE`
+
 # Description
 The DreamZDash takes care of the software layer for console management. This will work upon
 the distribution of the Linux used in the console. If a new distribution is created, the project
@@ -18,6 +24,7 @@ Further information will be in the documentation directory of this project.
 ## Dependencies
 You will need the following dependencies
 - CMake 13.2
+- doxygen (For contributing)
 
 ## Command
 The CMakeLists.txt needs to be invoked with cmake.

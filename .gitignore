@@ -21,3 +21,13 @@ _deps
 # Tristan Hilbert
 # Ignore Binary Directory
 bin/**
+a.out
+a.exe
+
+
+## VSCode
+.vscode/**
+
+
+## Some other files
+./freelancer.jpg

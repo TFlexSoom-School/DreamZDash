@@ -57,8 +57,8 @@ These are organized into:
 ### DreamZDash-Util: Loader
 Many of the components in the DreamZDash software system load something. A singular object which works
 to load pieces of data and blocking minimally (i.e. buffering) would be very useful in the project. This
-should have an interface according to a directy which is concurrently loaded in byte form. The loader 
-shouldnot decode the information, but nearly load it. A cacheing system is also possible with this 
+should have an interface according to a directory which is concurrently loaded in byte form. The loader 
+should not decode the information, but only load it. A cacheing system is also possible with this 
 black box description.
 #### Targets
 src/DreamZDash-Util/Loader.hpp
@@ -170,7 +170,7 @@ The DreamZDash-Display process works to display all the information collected fr
 processes. It also works to receive and respond to input from the player. The display will
 have some difficulty when architected. It should consider what happens if no data loads.
 The display will need to communicate as well as possible in all scenarios. We're not going
-to solve the halting proble here, but we can respect inputs. It might help to do some research.
+to solve the halting problem here, but we can respect inputs. It might help to do some research.
 
 
 Also this will need the use of a graphics framework like QT or SDL. Some multimedia service
