@@ -6,6 +6,7 @@
  */
 
 #include "ViewOrchestration.hpp"
+#include "ForeignProcessExchange.hpp"
 #include <vector>
 #include <iostream>
 #include <utility>
@@ -154,7 +155,10 @@ void ViewOrchestration::setupSelector(){
                     this->window.getSize().x / 2.0f,
                     this->window.getSize().y / 2.0f
                 ),
-                [](){} // Empty Function
+                [&](){
+                    execute_game("");
+                    this->window.close();
+                }
             }
         )
     );
@@ -214,10 +218,11 @@ void ViewOrchestration::setupSelector(){
 
 bool ViewOrchestration::inputLeftRight(bool isLeft){
     if(this->selectorData.getUID() == selector_game_preview_id){
+        // TODO Bugged! Test and Fix GamePreview!
         if(isLeft){
-            this->gamePreview.nextGame();
+            //this->gamePreview.nextGame();
         }else{
-            this->gamePreview.prevGame();
+            //this->gamePreview.prevGame();
         }
         return false;
     }else{
