@@ -13,7 +13,7 @@
 namespace dzdash{
     void execute_game(std::string command){
         if(command.size() == 0){
-            system("chromium-browser ~/games/index.html");
+            system("chromium ~/games/index.html");
         }else{
             system(command.c_str());
         }
