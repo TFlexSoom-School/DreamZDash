@@ -47,6 +47,7 @@ bool kernel(int pid){
     int options = WNOHANG;
     int w = 0;
     std::string command_list;
+
     do{
         w = waitpid(pid, &status, options);
         if(w < 0){
@@ -72,6 +73,10 @@ bool kernel(int pid){
         }else{
             std::string command = get_command(command_list);
             char ** argv = parse_command_list(command_list);
+
+            std::cout << command << std::endl;
+            std::cout << argv[0] << " " << argv[1] << " " << argv[2] << std::endl;
+
             execv(command.c_str(), argv);
             return false;
         }
@@ -82,7 +87,7 @@ bool kernel(int pid){
 }
 
 void dash_child(){
-    if(execl("./dzdash", "\0")){
+    if(execl("ping", "-c 3 www.oregonstate.edu\0")){
         std::cerr << "Error occured trying to execute ./dash" << std::endl;
         exit(1);
     }
@@ -98,9 +103,6 @@ std::string get_command(std::string list){
 
 char ** parse_command_list(std::string list){
     int count = 0;
-
-    // Remove Everything with '/'
-    list = list.substr(list.find_last_of("/") + 1);
 
     // Count number of spaces
     for(int i = 0; i < list.size(); i ++){
