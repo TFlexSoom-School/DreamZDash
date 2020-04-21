@@ -21,6 +21,7 @@ _deps
 # Tristan Hilbert
 # Ignore Binary Directory
 bin/**
+build/**
 a.out
 a.exe
 
